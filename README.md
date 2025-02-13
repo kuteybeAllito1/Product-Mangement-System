@@ -9,3 +9,17 @@
 
 
 
+## 📌 Project Screenshots
+
+### 🔹 Login Page
+![Login Page]([https://raw.githubusercontent.com/kuteybeAllito1/your-repo/main/public/images/login-page.png](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/1.png)
+
+### 🔹 Product Management Page
+![Product Management](https://raw.githubusercontent.com/your-username/your-repo/main/public/images/product-management.png)
+
+### 🔹 Add New Product Page
+![Add Product](https://raw.githubusercontent.com/your-username/your-repo/main/public/images/add-product.png)
+
+
+
+
