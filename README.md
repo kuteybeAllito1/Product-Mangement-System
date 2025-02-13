@@ -12,10 +12,10 @@
 ## 📌 Project Screenshots
 
 ### 🔹 Login Page
-![Login Page](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/1.png?token=GHSAT0AAAAAAC6D3QCX6KZF2H265FPTI7RMZ5ODHQQ)
+![Login Page](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/1.png?token=GHSAT0AAAAAAC6D3QCXRIMZHEGIWME2IXTYZ5OEWSQ)
 
 ### 🔹 Create a New Account
-![Create aNeew Account](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/2.png?token=GHSAT0AAAAAAC6D3QCXISHIUR4TQRLP27R6Z5ODNDA)
+![Create aNeew Account](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/2.png?token=GHSAT0AAAAAAC6D3QCWFZ6HI7NUEHVIJJ3SZ5OEW7Q)
 
 ### 🔹 Product Management Page
 ![Product Management](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/3.png?token=GHSAT0AAAAAAC6D3QCWQKAKKI52VRE5JCSUZ5OETRA)
