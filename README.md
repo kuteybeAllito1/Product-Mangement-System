@@ -14,12 +14,16 @@
 ### 🔹 Login Page
 ![Login Page](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/1.png?token=GHSAT0AAAAAAC6D3QCX6KZF2H265FPTI7RMZ5ODHQQ)
 
+### 🔹 Create a New Account
+![Create aNeew Account](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/2.png?token=GHSAT0AAAAAAC6D3QCXISHIUR4TQRLP27R6Z5ODNDA)
+
 ### 🔹 Product Management Page
-![Product Management](https://raw.githubusercontent.com/your-username/your-repo/main/public/images/product-management.png)
+![Product Management](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/3.png?token=GHSAT0AAAAAAC6D3QCWQKAKKI52VRE5JCSUZ5OETRA)
 
 ### 🔹 Add New Product Page
-![Add Product](https://raw.githubusercontent.com/your-username/your-repo/main/public/images/add-product.png)
+![Add Product](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/4.png?token=GHSAT0AAAAAAC6D3QCWCJEBUZMYTZ52J3ZEZ5OEUFQ)
 
-
+### 🔹 Edit Product Page
+![Add Product](https://raw.githubusercontent.com/kuteybeAllito1/Product-Mangement-System/refs/heads/main/public/Image/5.png?token=GHSAT0AAAAAAC6D3QCWYVNQSXWK37XC5LHAZ5OEVBQ)
 
 
