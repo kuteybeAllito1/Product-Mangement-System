@@ -21,3 +21,4 @@ Route::post('/products', [productController::class, 'store'])->name('products.st
 Route::get('/products/{product}/edit', [productController::class, 'edit'])->name('products.edit');
 Route::put('/products/{product}', [productController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}', [productController::class, 'destroy'])->name('products.destroy');
+

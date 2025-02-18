@@ -22,6 +22,22 @@
                 </div>
             @endif
 
+                    @if(session('success'))
+            <div class="alert alert-success text-center">
+                {{ session('success') }}
+            </div>
+             @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <form action="{{ route('check') }}" method="post">
                 {!! csrf_field() !!}  
 
@@ -29,7 +45,15 @@
                     <label for="email" class="form-label">Email Address</label>
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            class="form-control" 
+                            placeholder="Enter your email" 
+                            value="{{ old('email') }}"
+                            required
+                        >
                     </div>
                 </div>
 
@@ -37,9 +61,33 @@
                     <label for="password" class="form-label">Password</label>
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="••••••••" required>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            class="form-control" 
+                            placeholder="••••••••" 
+                            required
+                        >
                     </div>
                 </div>
+
+                        <div class="mb-3">
+                <label for="otp" class="form-label">Verification Code</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+                    <input 
+                        type="text" 
+                        name="otp" 
+                        id="otp" 
+                        class="form-control" 
+                        placeholder="Enter verification code"
+                    >
+                </div>
+                <small class="form-text text-muted">
+                    If your account is not activated, enter the code we sent to your email.
+                </small>
+            </div>
 
                 <button type="submit" class="btn btn-primary w-100">
                     <i class="fa-solid fa-sign-in-alt"></i> Login
