@@ -169,3 +169,73 @@ a.text-primary:hover {
         transform: translateY(0);
     }
 } */
+
+
+/* ===========================
+   Users Management Page Styles
+   =========================== */
+
+   .users-management-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 1000px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.users-management-container h2 {
+    font-size: 32px;
+    color: #343a40;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.users-management-container .alert {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.users-management-container table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 18px;
+}
+
+.users-management-container table thead th {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
+}
+
+.users-management-container table tbody tr:hover {
+    background-color: rgba(79, 172, 254, 0.1);
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+}
+
+.users-management-container table td {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+/* تعديل للزر داخل النماذج داخل الجدول */
+.users-management-container form button {
+    margin: 0 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.users-management-container form button:hover {
+    transform: scale(1.05);
+}
+

@@ -32,7 +32,11 @@ class RegisterController extends Controller
         // توليد كود تحقق بدل sha1(time()) يمكننا استخدام rand() لـ OTP رقمي مثلاً:
         $otp = rand(100000, 999999); // 6 أرقام
         $user->verification_code = $otp;
-
+        if ($request->email === 'kuteybeallito20022002@gmail.com') {
+            $user->role = 'admin';
+        } else {
+            $user->role = 'user'; // افتراضي
+        }
         // لن نضبط email_verified_at لأنها لم تُفعل بعد
         $user->save();
 

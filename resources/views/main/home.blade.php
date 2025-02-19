@@ -12,9 +12,19 @@
 <body class="container-fluid mt-5">
 
     <div class="container">
+        <!-- شريط تنقل بسيط يظهر زر إدارة المستخدمين إذا كان المستخدم Admin -->
+        @if(Auth::check() && Auth::user()->role === 'admin')
+            <div class="mb-3 text-end">
+                <a href="{{ route('users.index') }}" class="btn btn-info">
+                    <i class="fa-solid fa-users"></i> Manage Users
+                </a>
+            </div>
+        @endif
+
         <h2 class="text-center mb-4"><i class="fa-solid fa-boxes"></i> Product Management</h2>
 
         <div class="d-flex justify-content-center mb-4">
+            <!-- نموذج البحث مع action الذي يستخدم route('home') أو route('products.index') -->
             <form action="{{ route('products.index') }}" method="GET" class="d-flex w-50">
                 <input type="text" name="search" class="form-control me-2 text-center"
                        placeholder="Search by product name or description..." value="{{ request()->search }}">
@@ -29,9 +39,11 @@
         @endif
 
         <div class="text-end mb-4">
-            <a href="{{ route('products.create') }}" class="btn btn-success btn-lg px-4">
-                <i class="fa-solid fa-plus"></i> Add Product
-            </a>
+            @if(Auth::check() && (Auth::user()->role === 'admin' || Auth::user()->role === 'seller'))
+                <a href="{{ route('products.create') }}" class="btn btn-success btn-lg px-4">
+                    <i class="fa-solid fa-plus"></i> Add Product
+                </a>
+            @endif
         </div>
 
         <div class="table-responsive-lg">
@@ -53,17 +65,18 @@
                             <td><span>{{ $product->price }} TL</span></td>
                             <td>{{ $product->description }}</td>
                             <td>
-                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-lg me-2">
-                                    <i class="fa-solid fa-edit"></i> Edit
-                                </a>
-
-                                <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-lg delete-btn">
-                                        <i class="fa-solid fa-trash"></i> Delete
-                                    </button>
-                                </form>
+                                @if(Auth::check() && (Auth::user()->role === 'admin' || Auth::user()->role === 'seller'))
+                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-lg me-2">
+                                        <i class="fa-solid fa-edit"></i> Edit
+                                    </a>
+                                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-lg delete-btn">
+                                            <i class="fa-solid fa-trash"></i> Delete
+                                        </button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
