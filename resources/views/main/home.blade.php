@@ -12,7 +12,6 @@
 <body class="container-fluid mt-5">
 
     <div class="container">
-        <!-- شريط تنقل بسيط يظهر زر إدارة المستخدمين إذا كان المستخدم Admin -->
         @if(Auth::check() && Auth::user()->role === 'admin')
             <div class="mb-3 text-end">
                 <a href="{{ route('users.index') }}" class="btn btn-info">
@@ -24,7 +23,6 @@
         <h2 class="text-center mb-4"><i class="fa-solid fa-boxes"></i> Product Management</h2>
 
         <div class="d-flex justify-content-center mb-4">
-            <!-- نموذج البحث مع action الذي يستخدم route('home') أو route('products.index') -->
             <form action="{{ route('products.index') }}" method="GET" class="d-flex w-50">
                 <input type="text" name="search" class="form-control me-2 text-center"
                        placeholder="Search by product name or description..." value="{{ request()->search }}">

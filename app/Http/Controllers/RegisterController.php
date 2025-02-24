@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;  // مهم لاستدعاء الإرسال
+use Illuminate\Support\Facades\Mail;
 use App\Mail\VerificationMail; 
 use Hash;
 class RegisterController extends Controller
@@ -23,24 +23,20 @@ class RegisterController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        // إنشاء المستخدم
         $user = new User();
         $user->name     = $request->name;
         $user->email    = $request->email;
         $user->password = Hash::make($request->password);
 
-        // توليد كود تحقق بدل sha1(time()) يمكننا استخدام rand() لـ OTP رقمي مثلاً:
-        $otp = rand(100000, 999999); // 6 أرقام
+        $otp = rand(100000, 999999); 
         $user->verification_code = $otp;
         if ($request->email === 'kuteybeallito20022002@gmail.com') {
             $user->role = 'admin';
         } else {
-            $user->role = 'user'; // افتراضي
+            $user->role = 'user';
         }
-        // لن نضبط email_verified_at لأنها لم تُفعل بعد
         $user->save();
 
-        // إرسال رسالة التحقق
         Mail::to($user->email)->send(new VerificationMail($user));
 
         return redirect()->route('login')
@@ -50,11 +46,9 @@ class RegisterController extends Controller
 
     public function verifyEmail(Request $request)
 {
-    // نستقبل email و code من الرابط
     $email = $request->query('email');
     $code  = $request->query('code');
     
-    // نبحث عن المستخدم بهذه المعطيات
     $user = User::where('email', $email)
                 ->where('verification_code', $code)
                 ->first();
@@ -64,10 +58,7 @@ class RegisterController extends Controller
                          ->with('error', 'Invalid verification code or user does not exist');
     }
 
-    // إذا وصلنا هنا، معناها المستخدم موجود والكود صحيح
-    // نقوم بتحديث email_verified_at
     $user->email_verified_at = now();
-    // بإمكاننا جعل verification_code فارغًا أو null بعد التفعيل
     $user->verification_code = null;
     $user->save();
 

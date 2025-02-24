@@ -20,7 +20,6 @@ class CheckAdminSeller
             return redirect()->route('login')->with('error','You must log in first.');
         }
 
-        // سمح بالدخول فقط إذا الدور admin أو seller
         $role = Auth::user()->role;
         if ($role !== 'admin' && $role !== 'seller') {
             return redirect()->route('home')->with('error','Unauthorized action.');

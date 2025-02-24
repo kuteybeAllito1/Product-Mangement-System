@@ -31,7 +31,7 @@ class VerificationMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.verification', // نفس اسم ملف الـBlade
+            view: 'emails.verification',  
         );
     }
 

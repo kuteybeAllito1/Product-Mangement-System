@@ -229,7 +229,6 @@ a.text-primary:hover {
     vertical-align: middle;
 }
 
-/* تعديل للزر داخل النماذج داخل الجدول */
 .users-management-container form button {
     margin: 0 5px;
     transition: all 0.3s ease-in-out;
