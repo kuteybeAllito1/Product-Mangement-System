@@ -24,6 +24,34 @@ class User extends Authenticatable
         'verification_code',
     ];
 
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_user');
+    }
+
+    public function hasRole($roleName)
+    {
+        return $this->roles()->where('name', $roleName)->exists();
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->roles()->where('is_super_admin',true)->exists();
+    }
+
+    public function hasPermission($permissionName)
+    {
+        if ($this->isSuperAdmin()) {
+            return true;
+        }
+        return $this->roles()
+                    ->whereHas('permissions', function($q) use($permissionName){
+                        $q->where('name',$permissionName);
+                    })
+                    ->exists();
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

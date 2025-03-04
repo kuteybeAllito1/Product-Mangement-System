@@ -15,6 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin.seller' => \App\Http\Middleware\CheckAdminSeller::class,
             'admin.only'   => \App\Http\Middleware\CheckAdmin::class,
+            'permission' => \App\Http\Middleware\CheckPermission::class,
+
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

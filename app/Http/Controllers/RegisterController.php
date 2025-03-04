@@ -7,7 +7,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VerificationMail; 
+use App\Models\Role;
 use Hash;
+
 class RegisterController extends Controller
 {
     public function create()
@@ -24,18 +26,26 @@ class RegisterController extends Controller
         ]);
 
         $user = new User();
-        $user->name     = $request->name;
-        $user->email    = $request->email;
+        $user->name  = $request->name;
+        $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
         $otp = rand(100000, 999999); 
         $user->verification_code = $otp;
+
+        $user->save();  
+
         if ($request->email === 'kuteybeallito20022002@gmail.com') {
-            $user->role = 'admin';
+            $superAdminRole = Role::where('name','super_admin')->first();
+            if($superAdminRole){
+               $user->roles()->attach($superAdminRole->id);
+            }
         } else {
-            $user->role = 'user';
+            $userRole = Role::where('name','user')->first();
+            if($userRole){
+               $user->roles()->attach($userRole->id);
+            }
         }
-        $user->save();
 
         Mail::to($user->email)->send(new VerificationMail($user));
 
@@ -43,25 +53,24 @@ class RegisterController extends Controller
                          ->with('success', 'Your account has been created successfully. We have sent you a verification code to your email.');
     }
 
-
     public function verifyEmail(Request $request)
-{
-    $email = $request->query('email');
-    $code  = $request->query('code');
-    
-    $user = User::where('email', $email)
-                ->where('verification_code', $code)
-                ->first();
+    {
+        $email = $request->query('email');
+        $code  = $request->query('code');
+        
+        $user = User::where('email', $email)
+                    ->where('verification_code', $code)
+                    ->first();
 
-    if (!$user) {
-        return redirect()->route('login')
-                         ->with('error', 'Invalid verification code or user does not exist');
+        if (!$user) {
+            return redirect()->route('login')
+                             ->with('error', 'Invalid verification code or user does not exist');
+        }
+
+        $user->email_verified_at = now();
+        $user->verification_code = null;
+        $user->save();
+
+        return redirect()->route('login')->with('success', 'Your account has been activated successfully. You can log in now.');
     }
-
-    $user->email_verified_at = now();
-    $user->verification_code = null;
-    $user->save();
-
-    return redirect()->route('login')->with('success', 'Your account has been activated successfully. You can log in now.');
-}
 }

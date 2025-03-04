@@ -15,10 +15,20 @@ class CheckAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next)
-    {
-        if (!Auth::check() || Auth::user()->role !== 'admin') {
-            return redirect()->route('home')->with('error','Only admin can access this page.');
-        }
+{
+    if (!Auth::check()) {
+        return redirect()->route('home')->with('error','Only admin can access this page.');
+    }
+
+    if (Auth::user()->isSuperAdmin()) {
         return $next($request);
     }
+
+    if (!Auth::user()->hasRole('admin')) {
+        return redirect()->route('home')->with('error','Only admin can access this page.');
+    }
+
+    return $next($request);
+}
+
 }

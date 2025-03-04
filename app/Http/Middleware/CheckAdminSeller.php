@@ -15,16 +15,20 @@ class CheckAdminSeller
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next)
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error','You must log in first.');
-        }
+{
+    if (!Auth::check()) {
+        return redirect()->route('login')->with('error','You must log in first.');
+    }
 
-        $role = Auth::user()->role;
-        if ($role !== 'admin' && $role !== 'seller') {
-            return redirect()->route('home')->with('error','Unauthorized action.');
-        }
-
+    if (Auth::user()->isSuperAdmin()) {
         return $next($request);
     }
+
+    if (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('seller')) {
+        return redirect()->route('home')->with('error','Unauthorized action.');
+    }
+
+    return $next($request);
+}
+
 }
