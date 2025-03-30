@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Manage Permissions</title>
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body class="bg-light">
+@extends('admin.layout')
+
+@section('content')
 <div class="container mt-5">
 
     <div class="mb-4 text-start">
@@ -19,7 +13,7 @@
         </button>
     </div>
 
-    <h2 class="mb-4">Manage Permissions</h2>
+    <h2 class="mb-4"><i class="fa-solid fa-key"></i> Manage Permissions</h2>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -28,30 +22,30 @@
     <div class="card mb-4">
         <div class="card-header">Create New Permission</div>
         <div class="card-body">
-            <form action="{{ route('permissions.store') }}" method="POST">
+            <form action="{{ route('admin.permissions.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label>Permission Name</label>
                     <input type="text" name="name" class="form-control" placeholder="e.g. edit_orders" required>
                 </div>
-                <button class="btn btn-primary">Create Permission</button>
+                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Create Permission</button>
             </form>
         </div>
     </div>
 
-    <table class="table table-bordered">
-        <thead>
+    <table class="table table-bordered shadow-lg">
+        <thead class="table-primary">
             <tr>
                 <th>Permission</th>
-                <th>Delete</th>
+                <th class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach($permissions as $perm)
             <tr>
                 <td>{{ $perm->name }}</td>
-                <td>
-                    <form action="{{ route('permissions.destroy', $perm->id) }}" method="POST">
+                <td class="text-center">
+                    <form action="{{ route('admin.permissions.destroy', $perm->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-sm">
@@ -64,7 +58,4 @@
         </tbody>
     </table>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection

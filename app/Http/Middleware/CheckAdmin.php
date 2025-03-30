@@ -15,20 +15,20 @@ class CheckAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next)
-{
-    if (!Auth::check()) {
-        return redirect()->route('home')->with('error','Only admin can access this page.');
+    {
+        if (!Auth::check()) {
+            return redirect()->route('admin.login')->with('error','You must log in first.');
+        }
+    
+        if (Auth::user()->isSuperAdmin()) {
+            return $next($request);
+        }
+    
+        if (Auth::user()->can_access_admin) {
+            return $next($request);
+        }
+    
+        Auth::logout();
+        return redirect()->route('home')->with('error','Unauthorized action.');
     }
-
-    if (Auth::user()->isSuperAdmin()) {
-        return $next($request);
-    }
-
-    if (!Auth::user()->hasRole('admin')) {
-        return redirect()->route('home')->with('error','Only admin can access this page.');
-    }
-
-    return $next($request);
-}
-
 }

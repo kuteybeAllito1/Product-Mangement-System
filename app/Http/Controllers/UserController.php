@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Role;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -11,7 +13,7 @@ class UserController extends Controller
     {
         $users = User::with('roles')->get();
         $roles = Role::all(); 
-        return view('users.index', compact('users','roles'));
+        return view('admin.users.index', compact('users','roles'));
     }
 
     public function attachRole(Request $request, User $user)
@@ -40,7 +42,6 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success','User promoted to Seller.');
     }
 
-    // makeUser
     public function makeUser($id)
     {
         $user = User::findOrFail($id);
@@ -60,4 +61,26 @@ class UserController extends Controller
         }
         return redirect()->route('users.index')->with('success','User role changed to Admin.');
     }
+    public function grantAdminAccess($id)
+{
+    if (!Auth::user()->isSuperAdmin()) {
+        return back()->with('error','Unauthorized');
+    }
+    $user = User::findOrFail($id);
+    $user->can_access_admin = true;
+    $user->save();
+    return back()->with('success','Admin access granted.');
+}
+
+public function revokeAdminAccess($id)
+{
+    if (!Auth::user()->isSuperAdmin()) {
+        return back()->with('error','Unauthorized');
+    }
+    $user = User::findOrFail($id);
+    $user->can_access_admin = false;
+    $user->save();
+    return back()->with('success','Admin access revoked.');
+}
+
 }
