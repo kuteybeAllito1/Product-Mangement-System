@@ -8,6 +8,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PasswordController;
+
+
 
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
@@ -56,3 +60,13 @@ Route::post('/admin/login', [AdminLoginController::class, 'login'])
 
 Route::post('/admin/logout', [AdminLoginController::class, 'logout'])
      ->name('admin.logout');
+
+Route::middleware('auth')->group(function () {
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+Route::get('/password/forgot', [PasswordController::class, 'showRequestForm'])->name('password.request');
+Route::post('/password/email', [PasswordController::class, 'sendResetLink'])->name('password.email');
+Route::get('/password/reset/{token}', [PasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/password/reset', [PasswordController::class, 'updatePassword'])->name('password.update');

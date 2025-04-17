@@ -76,7 +76,9 @@
                 <button type="submit" class="btn btn-primary w-100">
                     <i class="fa-solid fa-sign-in-alt"></i> Login
                 </button>
-
+                <p class="mb-1">
+    <a href="{{ route('password.request') }}">I forgot my password</a>
+</p>
                 <p class="text-center mt-3">
                     Don't have an account?
                     <a href="{{ route('register') }}" class="text-primary text-decoration-none">

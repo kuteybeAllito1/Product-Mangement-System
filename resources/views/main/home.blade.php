@@ -12,6 +12,23 @@
 <body class="container-fluid mt-5">
 
     <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ route('home') }}">MyApp</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        @if(Auth::check())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('profile.edit') }}">
+                                    <i class="fa-solid fa-user"></i> Edit Profile
+                                </a>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <h2 class="text-center mb-4"><i class="fa-solid fa-boxes"></i> Product List</h2>
 
         <div class="d-flex justify-content-center mb-4">
