@@ -75,5 +75,5 @@ Perfect for learning modern PHP development and building a robust e-commerce bac
 
 1. **Clone the repo**  
    ```bash
-   git clone https://github.com/your-username/product-management.git
+   git clone https://github.com/kuteybeAllito1/Product-Mangement-System.git
    cd product-management
