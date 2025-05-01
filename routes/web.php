@@ -64,6 +64,19 @@ Route::post('/admin/logout', [AdminLoginController::class, 'logout'])
 Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+Route::get('/cart', [App\Http\Controllers\CartController::class,'index'])
+     ->middleware('auth')->name('cart.index');
+
+Route::post('/cart/add', [App\Http\Controllers\CartController::class,'add'])
+     ->middleware('auth')->name('cart.add');
+
+Route::patch('/cart/item/{item}', [App\Http\Controllers\CartController::class,'update'])
+     ->middleware('auth')->name('cart.update');
+
+Route::delete('/cart/item/{item}', [App\Http\Controllers\CartController::class,'remove'])
+     ->middleware('auth')->name('cart.remove');
+
 });
 
 Route::get('/password/forgot', [PasswordController::class, 'showRequestForm'])->name('password.request');
