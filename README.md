@@ -1,29 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌟 Product Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel Version](https://img.shields.io/badge/Laravel-10.x-red)](https://laravel.com)  
+[![PHP Version](https://img.shields.io/badge/PHP-8.1+-blue)](https://www.php.net)  
+[![MySQL](https://img.shields.io/badge/MySQL-8.x-orange)](https://www.mysql.com)  
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
+---
 
+## 🚀 Table of Contents
 
-## 📌 Project Screenshots
+- [📌 Overview](#-overview)  
+- [✨ Features](#-features)  
+- [🔧 Tech Stack](#-tech-stack)  
+- [⚙️ Installation](#️-installation)  
+- [🎬 Usage](#-usage)  
+- [🖼️ Screenshots](#️-screenshots)  
+- [🤝 Contributing](#-contributing)  
+- [📄 License](#-license)  
+- [✉️ Contact](#️-contact)
 
-### 🔹 Login Page
-![Login Page](https://private-user-images.githubusercontent.com/151377272/412993981-360d659f-3442-4827-bdfd-0c0a5346b8a2.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzk0NjcxNjksIm5iZiI6MTczOTQ2Njg2OSwicGF0aCI6Ii8xNTEzNzcyNzIvNDEyOTkzOTgxLTM2MGQ2NTlmLTM0NDItNDgyNy1iZGZkLTBjMGE1MzQ2YjhhMi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMjEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDIxM1QxNzE0MjlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hZDdmMmI5NjI3YjczYWFlMmU4YjJhZGFjNTg0YWZiYWMxNjUxYjA5MjBlYzcyZDQzMzdkMTFlMWU2ZGQ5MTJhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.s2AHrcGLo6Bghjs69wc5S2xcUlbcFW4bSBg5Y8t0P2I)
+---
 
-### 🔹 Create a New Account
-![Create aNeew Account](https://private-user-images.githubusercontent.com/151377272/412993982-80fd096f-5dfc-45a9-bd44-7e3d8d9f313d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzk0NjcxNjksIm5iZiI6MTczOTQ2Njg2OSwicGF0aCI6Ii8xNTEzNzcyNzIvNDEyOTkzOTgyLTgwZmQwOTZmLTVkZmMtNDVhOS1iZDQ0LTdlM2Q4ZDlmMzEzZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMjEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDIxM1QxNzE0MjlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iY2YzODUxZjFmMDRkZDQzMmQzNjk0ZmFkYjFkMDdiYjMwMmJmMDA2MzdiYTIyY2E5YWYyZGRhYmU2YjJhNDZmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Vu05ITWx3vW2l4teXQVZOVmUwPrkkpWuuR331aV12G0)
+## 📌 Overview
 
-### 🔹 Product Management Page
-![Product Management](https://private-user-images.githubusercontent.com/151377272/412993979-a4b40943-ef36-4d08-8924-8808b4732de7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzk0NjcxNjksIm5iZiI6MTczOTQ2Njg2OSwicGF0aCI6Ii8xNTEzNzcyNzIvNDEyOTkzOTc5LWE0YjQwOTQzLWVmMzYtNGQwOC04OTI0LTg4MDhiNDczMmRlNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMjEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDIxM1QxNzE0MjlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04NGM1ZGNlM2ZlMGM4ZDYwZTU2Y2QzN2Q5ZWM5MTNjNTg3MzNlM2FkMGEyOTQ4NzkzNzljNjNlYTdlM2YxYzc5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.oz0LpS6qJgQ3WDA35xn57lYcPdVv9V9kY4Vfo35ipXU)
+A full-featured **Product Management System** built with **Laravel**, **PHP**, **MySQL** and **Blade** templates.  
+It provides:
 
-### 🔹 Add New Product Page
-![Add Product](https://private-user-images.githubusercontent.com/151377272/412993983-3bbf1a00-2206-4726-a5de-8ae2301554cd.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzk0NjcxNjksIm5iZiI6MTczOTQ2Njg2OSwicGF0aCI6Ii8xNTEzNzcyNzIvNDEyOTkzOTgzLTNiYmYxYTAwLTIyMDYtNDcyNi1hNWRlLThhZTIzMDE1NTRjZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMjEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDIxM1QxNzE0MjlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNjBiMDU4ZDllYWFmNzNhMGFiYjM0OTUxZTUwODVhMDQxNzE4ZGVmYmZhNmUxODg3ZTUzZGE1NWVlZTA2YzYwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.uv4rsIOfdDEEN2jvV7yRp5963VatxQcQDKkaSULir00)
+- 🛠 CRUD for products  
+- 👥 User registration & email verification  
+- 🔒 Role-based access control (RBAC)  
+- 🔑 Password reset & profile editing  
+- 🛒 Shopping cart integration  
 
-### 🔹 Edit Product Page
-![Add Product](https://private-user-images.githubusercontent.com/151377272/412993980-09e00a8b-7dcd-449b-a68a-2983b0bec49f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzk0NjcxNjksIm5iZiI6MTczOTQ2Njg2OSwicGF0aCI6Ii8xNTEzNzcyNzIvNDEyOTkzOTgwLTA5ZTAwYThiLTdkY2QtNDQ5Yi1hNjhhLTI5ODNiMGJlYzQ5Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMjEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDIxM1QxNzE0MjlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00OTk5NTZjOWY3MGI0OWYzZGM2MzdmODliYmFjOWZiYzIxYjcwNmIyNTFkYTBiOGZjYzhiNmM1NzExMjRjNDAzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.DjOOf5ULa_0LIl9xeLQvBYYsaGd4YS2cU3Ua6q2R3fI)
+Perfect for learning modern PHP development and building a robust e-commerce backbone.
 
+---
 
+## ✨ Features
+
+1. **Authentication & Verification**  
+   - User signup, login & email OTP verification.  
+   - Forgot-password workflow with secure token.
+
+2. **Profile Management**  
+   - Authenticated users can update their name, email, and password.
+
+3. **Role & Permission System**  
+   - **Super Admin**, **Admin**, **Seller**, **User** roles.  
+   - Create new roles & granular permissions.  
+   - Attach/detach permissions to roles dynamically.
+
+4. **Product Management**  
+   - List, create, edit & delete products.  
+   - Search by name or description.  
+   - UI actions gated by permissions.
+
+5. **Shopping Cart**  
+   - Add products to cart from listing.  
+   - View cart: update qty, remove items, calculate totals.
+
+---
+
+## 🔧 Tech Stack
+
+- **Framework:** Laravel 10.x  
+- **Language:** PHP 8.1+  
+- **Database:** MySQL 8.x  
+- **Frontend:** Blade, Bootstrap 5, Font Awesome  
+- **Email:** Built-in Mail with SMTP support  
+
+---
+
+## ⚙️ Installation
+
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/kuteybeAllito1/Product-Mangement-System.git
+   cd product-management
